@@ -1,0 +1,16 @@
+<h2>Welcome to the longest Word Game !</h2>
+
+<h5>Here is your grid :</h5>
+<ul>
+  <% @letters.each do |letter| %>
+  <li class="btn btn-primary"><%=  letter.upcase%></li>
+  <% end %>
+  </ul>
+
+<h5>What is your longest word ?</h5>
+<form method="post" action="/score" data-turbo="false">
+  <input class="" type="text" name="guess" value="<% params=[:guess] %>" placeholder="What is your guess ?">
+  <input type="hidden" name="grille" value=>
+  <input class="btn btn-primary" type="submit" value="Guess!">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+</form>
